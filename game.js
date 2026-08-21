@@ -630,8 +630,8 @@
 
   function playerHitbox() {
     return {
-      x: player.x - player.w * 0.27,
-      y: player.y - player.h * 0.22,
+      x: player.x,
+      y: player.y,
       rx: player.w * 0.27,
       ry: player.h * 0.22,
     };
@@ -818,8 +818,7 @@
     particles.update(dt);
     for (const key of ["far", "mid", "foreground"]) {
       const rate = { far: 0.2, mid: 0.42, foreground: 0.78 }[key];
-      game.parallax[key] =
-        (game.parallax[key] + game.worldSpeed * rate * dt) % W;
+      game.parallax[key] += game.worldSpeed * rate * dt;
     }
     if (toastTimer > 0 && (toastTimer -= dt) <= 0)
       ui.toast.classList.remove("show");
