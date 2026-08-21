@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"
+    />
+    <meta name="theme-color" content="#b9e7ff" />
+    <meta name="description" content="和萱萱一起飞过云朵与星星的温暖飞行冒险" />
+    <title>萱萱飞飞大冒险</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="app" aria-label="萱萱飞飞大冒险游戏">
+      <canvas id="game-canvas" aria-label="游戏画面"></canvas>
+
+      <section id="loading" class="screen active" aria-live="polite">
+        <div class="loading-card glass">
+          <div class="loading-star">✦</div>
+          <h1>萱萱飞飞大冒险</h1>
+          <p id="loading-text">正在准备萱萱的小飞机… 0%</p>
+          <div class="loading-track"><span id="loading-fill"></span></div>
+        </div>
+      </section>
+
+      <section id="menu" class="screen" aria-labelledby="game-title">
+        <div class="menu-orb orb-one"></div>
+        <div class="menu-orb orb-two"></div>
+        <div class="menu-card glass">
+          <div class="title-block">
+            <span class="eyebrow">A MAGICAL SKY JOURNEY</span>
+            <h1 id="game-title">萱萱飞飞大冒险</h1>
+            <p>跟萱萱一起，飞过云朵和星星！</p>
+          </div>
+          <img
+            class="menu-hero"
+            src="./assets/xuanxuan/normal.png"
+            alt="乘着奶油云朵号的萱萱"
+          />
+          <button id="start-button" class="primary-button" type="button">
+            <span>开始冒险</span><b>→</b>
+          </button>
+          <div class="menu-meta">
+            <button
+              id="menu-sound"
+              class="quiet-button"
+              type="button"
+              aria-label="切换声音"
+            >
+              🔊 声音开启
+            </button>
+            <span>最高纪录 <strong id="menu-best">0</strong></span>
+          </div>
+          <div class="controls-tip">
+            <span><b>电脑</b> 移动鼠标控制飞行 · 按住空格 BOOST</span>
+            <span><b>手机</b> 手指上下拖动控制 · 按住 BOOST 加速</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="hud" class="hud" aria-label="游戏信息">
+        <div class="score-card glass">
+          <small>SCORE</small><strong id="score">0</strong
+          ><span>BEST <b id="best">0</b></span>
+        </div>
+        <div id="hearts" class="hearts glass" aria-label="生命值">♥ ♥ ♥</div>
+        <div id="boost-meter" class="boost-meter glass">
+          <div class="boost-label">
+            <span>BOOST</span><b id="boost-value">100</b>
+          </div>
+          <div class="boost-track"><i id="boost-fill"></i></div>
+        </div>
+        <div class="hud-actions">
+          <button
+            id="sound-button"
+            class="icon-button glass"
+            type="button"
+            aria-label="切换声音"
+          >
+            🔊
+          </button>
+          <button
+            id="pause-button"
+            class="icon-button glass"
+            type="button"
+            aria-label="暂停游戏"
+          >
+            Ⅱ
+          </button>
+        </div>
+        <div id="combo" class="combo">COMBO ×2</div>
+        <button id="boost-button" class="boost-button" type="button">
+          <span>按住</span><b>BOOST</b>
+        </button>
+      </section>
+
+      <section
+        id="pause-screen"
+        class="screen overlay"
+        aria-labelledby="pause-title"
+      >
+        <div class="dialog glass">
+          <span class="dialog-spark">✦</span>
+          <h2 id="pause-title">暂停啦</h2>
+          <p>云朵会在这里等你 ✨</p>
+          <button id="resume-button" class="primary-button" type="button">
+            继续飞行
+          </button>
+          <button id="restart-pause" class="secondary-button" type="button">
+            重新开始
+          </button>
+          <button id="home-pause" class="text-button" type="button">
+            返回首页
+          </button>
+        </div>
+      </section>
+
+      <section
+        id="game-over"
+        class="screen overlay"
+        aria-labelledby="over-title"
+      >
+        <div class="dialog glass">
+          <span id="record-badge" class="record-badge">NEW RECORD!</span>
+          <h2 id="over-title">飞行结束啦！</h2>
+          <div class="result">
+            <span>本次分数<strong id="final-score">0</strong></span
+            ><span>最高纪录<strong id="final-best">0</strong></span>
+          </div>
+          <button id="restart-over" class="primary-button" type="button">
+            再飞一次
+          </button>
+          <button id="home-over" class="text-button" type="button">
+            返回首页
+          </button>
+        </div>
+      </section>
+
+      <div id="rotate-hint">横过手机，飞得更开心 ✨</div>
+      <div id="toast" aria-live="polite"></div>
+    </main>
+    <script src="./game.js"></script>
+  </body>
+</html>
